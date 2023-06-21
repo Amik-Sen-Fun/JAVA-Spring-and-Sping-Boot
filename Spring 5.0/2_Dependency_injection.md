@@ -107,5 +107,33 @@ public class MockitoTest{
 # Dependency Injection Types
 
 - Setter Injection
+    - Define a specific `setter` function to inject the value of an object to a function.
+    - Comes with non-mandatory dependencies
   
 - Constructor Injection 
+    - The object is initialised inside the constructor method.
+    - It comes with madatory dependencies
+
+> If no independencies available for autowired field then it throws an exception
+
+- Use `@Scope("singleton")` to set the scope of a bean, by default it is singleton
+
+# `@Autowired annotation`
+
+- While using `@Autowired` their are few possible outcomes:
+  - One match found
+  - More than one match found
+  - No match found
+
+In both the later cases, `@Autowired` fails. For **more than one matches** found can be resolved using:
+- `@Primary`annotation: for the primary response 
+- `@Qualifier`annotation: for further qualifying autowirings
+  ```java
+  @Qualifier("abc")
+  // beans code
+
+  // code .. . .. 
+  
+  // Some class component code
+   @Qualifier("abc")
+  ``` 
