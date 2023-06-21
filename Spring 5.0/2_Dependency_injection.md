@@ -118,7 +118,7 @@ public class MockitoTest{
 
 - Use `@Scope("singleton")` to set the scope of a bean, by default it is singleton
 
-# `@Autowired annotation`
+# `@Autowired` annotation
 
 - While using `@Autowired` their are few possible outcomes:
   - One match found
