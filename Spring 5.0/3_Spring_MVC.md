@@ -135,4 +135,3 @@ Some other validators:
     }
     ```
 
-  - `InitBinder`
