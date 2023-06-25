@@ -1,1 +1,7 @@
-# Parameters i 
+# Parameters in Cucumber 
+
+## String 
+
+## Integer 
+
+
