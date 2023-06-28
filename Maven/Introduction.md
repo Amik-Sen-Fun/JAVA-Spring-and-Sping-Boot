@@ -10,3 +10,6 @@
 
 # Maven Project commands
 
+- To package a maven project into a JAR file write : `mvn package`
+- To look inside the JAR file do : `jar tvf ..location.jar`
+- To clean a maven project do : `mvn clean`
