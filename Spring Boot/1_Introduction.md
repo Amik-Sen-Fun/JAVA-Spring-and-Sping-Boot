@@ -4,7 +4,7 @@
 
 - It supports MVC and WebFlux
 
-- In can embed Tomcat, jetty and Undertow
+- In can embeds Tomcat, jetty and Undertow (which are application servers similar to flask or waitress server)
 
 ## Features
 
