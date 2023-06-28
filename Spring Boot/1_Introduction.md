@@ -6,6 +6,17 @@
 
 - In can embeds Tomcat, jetty and Undertow (which are application servers similar to flask or waitress server)
 
+
+- Why Spring Boot?
+    - It is just an interface to built spring applications.
+    - It takes the burden to configure a Spring application .
+    - Spring uses a WAR file that runs on tomcat server, In Spring Boot we have a JAR file with embedded tomcat or anything.
+    - Starting a project is easy using `spring-boot-starter-web`
+    - To work with JDBC using `spring-boot-starter-jdbc`
+    - Spring boot has auto configuration
+        - So, how to change configuration as spring boot doesnot have an xml file
+            -  Use `application.properties`
+
 ## Features
 
 - Core Features: 
