@@ -109,4 +109,51 @@ public class webController{
 </th:block>
 ```
 
+# Using Starters and Defining the Entry Point 
+
+## Starter
+
+- Starters are a set of dependencies descriptors 
+- Easy to access technologies 
+- Example:
+    - `spring-starter`
+    - `spring-starter-web`
+    - `spring-starter-thymeleaf`
+
+## Entrypoint
+
+Entrypoint of our application is defined as :
+
+```java
+// The entry point is the main method
+
+@SpringBootApplication
+public class XXXApplication{
+    public static void main(Strin[] args){
+        SpringApplication.run(XXXApplication.class, args);
+    }
+}
+```
+# Testing your application 
+
+Packages that could be used for testing:
+
+- Junit
+- Spring test and Spring boot test: for utilities and integration test 
+- AssertJ
+- Hamcrest: of matcher object
+- Mockito
+- JSONassert: assertion library for JSON
+- JSONPath: XPath for JSON
+
+## Unit Test
+
+- Single Components work according to theor specifications
+
+## Integration Test
+- Components work together as a whole or not 
+- Example:
+    - `@RunWith(SpringRunner.class)`
+    - `@SpringBootTest`
+    - `@AutoConfigureMockMvc`
 
