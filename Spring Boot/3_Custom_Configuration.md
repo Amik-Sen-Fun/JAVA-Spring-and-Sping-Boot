@@ -86,7 +86,7 @@ Can be used to do multiple database connection or other connection.
 # Implementing Logs to Diagnose Errors
 
 - Level, pattern and console/file output can be configured for Logback, JUL, and Log4j2. 
-- Common log level are `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG` and `TRACE`.
+- Common log level are `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG` and `TRACE`. This can be changed in the `logging.level.*` variable. 
 - `ERROR`, `WARN` and `INFO` are logged to console by default. 
 - Common Configuration Options
 
@@ -115,3 +115,22 @@ Can be used to do multiple database connection or other connection.
 |JUL| logging.properties|
 
 
+Sample code to run the logger: 
+
+```java
+
+// inside the controller class
+    
+    // define the logger 
+    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+
+
+    // inside any mapping
+    @RequestMapping("/")
+    public String root(){
+        logger.debug("root path");
+        return "redirect:/index";
+    }
+
+
+```
