@@ -88,5 +88,20 @@ Can be used to do multiple database connection or other connection.
 - Level, pattern and console/file output can be configured for Logback, JUL, and Log4j2. 
 - Common log level are `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG` and `TRACE`.
 - `ERROR`, `WARN` and `INFO` are logged to console by default. 
+- Common Configuration Options 
+|Name|Function|
+|---|---|
+|logging.config| Native config file of the logging framework|
+|logging.exception-conversion-word|Marker for exception logging; the default is %wEx|
+|logging.file| Filename to be logged into|
+|logging.path| Path of generated log file|
+|logging.level.\*| Level of a logger|
+|logging.pattern.console| Pattern used for logging into the console (only logback)|
+|logging.pattern.file| Pattern for logging into a file(only logback)|
+|logging.pattern.level| Pattern used for log level (only logback)|
+|logging.register-shutdown-hook| Flag for whether to register a hook that shuts down the logging subsystem with the application|
+
+
+
 
 
