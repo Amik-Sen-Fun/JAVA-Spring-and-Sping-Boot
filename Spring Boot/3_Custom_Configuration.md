@@ -100,6 +100,7 @@ Can be used to do multiple database connection or other connection.
 |logging.pattern.file| Pattern for logging into a file(only logback)|
 |logging.pattern.level| Pattern used for log level (only logback)|
 |logging.register-shutdown-hook| Flag for whether to register a hook that shuts down the logging subsystem with the application|
+|---|---|
 
 
 
