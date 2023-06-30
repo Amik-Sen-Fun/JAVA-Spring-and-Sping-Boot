@@ -91,7 +91,6 @@ Can be used to do multiple database connection or other connection.
 - Common Configuration Options
 
 
-
 |Name|Function|
 |---|---|
 |logging.config| Native config file of the logging framework|
@@ -106,6 +105,13 @@ Can be used to do multiple database connection or other connection.
 
 
 
+- Dependent on the chosen logger we change the following config file: 
 
+
+|Logger|Config File|
+|---|---|
+|Logback| Logback-spring.xml, logback-spring.groovy, logback.xml, logback.groovy|
+|Log4j2|log4j-spring.xml, log4j2.xml|
+|JUL| logging.properties|
 
 
