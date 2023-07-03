@@ -33,5 +33,108 @@ management.endpoints.enabled-by-default = true
 
 # Exploring the Extremities of Spring Boot Actuator
 
-- By default, all endpoints are enables, except for shutdown
+- By default, all endpoints are enables, except for shutdown.
+
+- Enable/disable an endpoint with: 
+    - `management.endpoint.<id>.enables=true/false`
+    - `management.endpoints.web.exposure.include = health, info`
+    - `management.endpoints.web.exposure.exclude = `
+
+
+# Custom Endpoints 
+
+- Define your own endpoints with `@Endpoint`
+- Define a config class with `@ManagementContextConfiguration`
+- Create a `spring.factories` file with this content: 
+    - `org.springframework.boot.actuate.autoconfigure.web.ManagementContextConfiguration = \`
+    - `yourpackage.yourCustomEndpointConfig`
+    
+```java
+@Endpoint(id="custom")
+public class CustomEndpoint{
+    private final HashMap<String, Person> map = new HashMap<String, Person>();
+
+    @ReadOperation
+    public List<Person> getOperation(){
+        return new ArrayList<Person>(map.values());
+    }
+
+    @WriteOperation
+    public String writeOperation(){
+        return "write"
+    }
+
+    @DeleteOperation
+    public String deleteOperation(){
+        return "delete";    
+    }
+}
+```
+
+# Checking Health Indicators
+
+- Health endpoint statuses: 
+    - `UP`
+    - `DOWN`
+    - `OUT_OF_SERVICE`
+    - `UNKNOWN`
+
+- Spring Boot 2 comes with several pre-defined health checks, such
+    - `DataSourceHealthIndicator`
+    - `DiskSpaceHealthIndicator`
+    - `MongoHealthIndicator`
+    - `RedisHealthIndicator`
+    - `CassandraHealthIndicator`
+    
+```java
+@Component
+public class CustomHealthIndicator implements HealthIndicator{
+    
+    @Override
+    public Health health(){
+        return Health.up().withDetail("user","Amik Sen").build();
+    }
+}
+```
+
+# Reviewing the Metrics 
+
+
+Metrics:
+
+- JVM Metrics
+- CPU Metrics
+- FileDescriptor Metrics
+- Kafka Consumer Metrics
+
+##  `Promtheus`
+
+It is a metric monitoring system that implemnets a dimensional data model. It allows queries and visualizes data.
+
+- It is installed as a dependency.
+
+- To install a custom metric in Prometheus do: 
+
+```java
+@Controller
+public class IndexController {
+    private Counter myCounter;
+
+    public IndexController(MeterRegistry registry){
+
+        mycounter = Counter.builder("mycustommetric")
+                    .description("My custom metric")
+                    .register(registry)
+    }
+
+    @RequestMapping("/")
+    public String index(){
+        // blah blah blah
+        mycounter.increment(); // increases the metric
+    }
+
+}
+```
+
+
 
