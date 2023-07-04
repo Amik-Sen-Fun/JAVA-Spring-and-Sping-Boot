@@ -125,6 +125,7 @@ public class HomeController{
     private static final String BASE_PATH = "/images";
     private static final String FILENAME= "{filename:.+}";
 
+    // using the defined service here 
     @Autowired
     public HomeController(ImageService imageService){
         this.imageService = imageService;
@@ -148,3 +149,11 @@ public class HomeController{
 }
 ```
 
+- Code to upload a file to our server
+    ```
+    curl -v -x POST -f file=@file/location localhost:8080/images
+    ```
+- Code to delete a file in our server
+    ```
+    curl -v -x DELETE localhost:8080/images/filename
+    ```
